@@ -1,0 +1,32 @@
+{
+  "name": "MyCampus",
+  "description": "Chrome Extension for SKKU students",
+  "manifest_version": 3,
+  "version": "1.0.0",
+  "icons": {
+    "16": "logo_16.png",
+    "48": "logo_48.png",
+    "128": "logo_128.png"
+  },
+  "action": {
+    "default_title": "Open the popup",
+    "default_icon": {
+      "16": "logo_16.png",
+      "48": "logo_48.png"
+    }
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": ["storage", "tabs", "activeTab"],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://canvas.skku.edu/*"
+      ],
+      "js": [
+        "content.js"
+      ]
+    }
+  ]
+}
